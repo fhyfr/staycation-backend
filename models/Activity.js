@@ -1,17 +1,20 @@
 const mongoose = require('mongoose');
-const featureSchema = new mongoose.Schema({
+const activitySchema = new mongoose.Schema({
     name : {
         type: String,
         required: true
     },
-    qty : {
+    type : {
         type: Number,
         required: true
     },
     imageUrl : {
         type: String,
         required: true
+    },
+    isPopular : {
+        type: Boolean
     }
 })
 
-module.exports = mongoose.model('Feature', featureSchema)
+module.exports = mongoose.model('Activity', activitySchema)
