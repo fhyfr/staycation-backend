@@ -7,15 +7,27 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var adminRouter = require('./routes/admin');
+const methodOverride = require('method-override');
+const session = require('express-session');
+const flash = require('connect-flash');
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(methodOverride('_method'));
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 60000 }
+}));
+app.use(flash());
+
 // set database connection
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/myapp', {
+mongoose.connect('mongodb://localhost:27017/db_staycation', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
