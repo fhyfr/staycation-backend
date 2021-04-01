@@ -1,7 +1,10 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
+            <i class="fas fa-plus"></i>
+        </button>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -12,13 +15,28 @@
                 <th>Name Bank</th>
                 <th>Nomor Rekening</th>
                 <th>Name</th>
+                <th>Image</th>
                 <th>Action</th>
             </tr>
             </thead>
+            <tbody>
+                <% for(let loop = 0 ; loop < bank.length; loop++){ %>
+                    <tr>
+                        <td><%= loop + 1%></td>
+                        <td><%= bank[loop].nameBank%></td>
+                        <td><%= bank[loop].nomorRekening%></td>
+                        <td><%= bank[loop].name%></td>
+                        <td><img src="http://localhost:3000/<%= bank[loop].imageUrl %>" alt="imageUrl" width="70px" height="70px"></td>
+                        <td>
+                            <form action="/admin/bank/<%= bank[loop].id %>?_method=DELETE" method="POST">
+                                <a href="javascript:void()" type="button" class="btn btn-warning btn-circle btn-sm button-update" data-id="<%= bank[loop].id %>" data-name="<%= bank[loop].name %>" data-namebank="<%= bank[loop].nameBank %>" data-nomorrekening ="<%= bank[loop].nomorRekening %>"><i class="fas fa-edit"></i></a>
+                                <button type="submit" class="btn btn-danger btn-circle btn-sm" ><i class="fas fa-trash"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% } %>
+                </tbody>
         </table>
-        <tbody>
-            
-        </tbody>
         </div>
     </div>
 </div>
