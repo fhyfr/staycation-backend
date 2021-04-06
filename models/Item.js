@@ -12,18 +12,23 @@ const itemSchema = new mongoose.Schema({
     },
     country : {
         type: String,
-        default: "Indonesia"
+        default: 'Indonesia'
     },
     city : {
         type: String,
         required: true
     },
     isPopular : {
-        type: Boolean
+        type: Boolean,
+        default: false
     },
     description : {
         type: String,
         required: true
+    },
+    categoryId : {
+        type: ObjectId,
+        ref: 'Category'
     },
     imageId : [{
         type: ObjectId,
