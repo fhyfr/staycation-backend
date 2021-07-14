@@ -4,7 +4,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-md-5">
-            <form action="/admin/bank" method="POST" enctype="multipart/form-data">
+            <form action="/admin/item/add/activity" method="POST" enctype="multipart/form-data">
                   <div class="form-group">
                       <label for="name">Name</label>
                       <input type="text" class="form-control" name="name" placeholder="Enter name" required>
@@ -17,6 +17,9 @@
                       <label for="name">Image</label>
                       <input type="file" class="form-control" name="image" required>
                   </div>
+
+                <input type="hidden" value="<%= itemId %>" name="itemId">
+
                 <button type="submit" class="btn btn-primary">Save</button>
               </form>
           </div>
@@ -33,7 +36,21 @@
                 </tr>
                 </thead>
                 <tbody>
-                    
+                  <% for(let loop = 0 ; loop < activity.length; loop++){ %>
+                    <tr>
+                        <td><%= loop + 1%></td>
+                        <td><%= activity[loop].name%></td>
+                        <td><%= activity[loop].type%></td>
+                        <td><img src="http://localhost:3000/<%= activity[loop].imageUrl %>" alt="imageUrl" width="70px"></td>
+                        <td>
+                            <form action="/admin/item/<%= itemId %>/activity/<%= activity[loop].id %>?_method=DELETE" method="POST">
+                                <a href="javascript:void()" type="button" class="btn btn-warning btn-circle btn-sm button-update" data-id="<%= activity[loop].id %>" data-name="<%= activity[loop].name %>" data-type="<%= activity[loop].type %>"><i class="fas fa-edit"></i></a>
+                                
+                                <button type="submit" class="btn btn-danger btn-circle btn-sm" ><i class="fas fa-trash"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% } %>
                 </tbody>
             </table>
             </div>
