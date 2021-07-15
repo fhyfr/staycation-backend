@@ -1,8 +1,5 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-    </div>
     <div class="card-body">
         <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -17,10 +14,22 @@
                 <th>Action</th>
             </tr>
             </thead>
+            <tbody>
+                <% for(let loop = 0 ; loop < booking.length; loop++){ %>
+                <tr>
+                    <td><%= loop + 1%></td>
+                    <td><%= booking[loop].bookingStartDate.toLocaleString().split(',')[0] %> s/d <%= booking[loop].bookingEndDate.toLocaleString().split(',')[0] %></td>
+                    <td><%= booking[loop].itemId.title %></td>
+                    <td><%= booking[loop].memberId.firstName %> <%= booking[loop].memberId.lastName %></td>
+                    <td><%= booking[loop].bankId.nameBank %></td>
+                    <td><%= booking[loop].payments.status %></td>
+                    <td>
+                            <a href="/admin/booking/<%= booking[loop].id %>" class="btn btn-success btn-circle btn-sm button-update"><i class="fas fa-eye"></i></a>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
         </table>
-        <tbody>
-            
-        </tbody>
         </div>
     </div>
 </div>
