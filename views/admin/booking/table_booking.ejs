@@ -6,10 +6,10 @@
             <thead>
             <tr>
                 <th>No</th>
+                <th>Invoice</th>
                 <th>Date</th>
                 <th>Title</th>
                 <th>Name Member</th>
-                <th>Name Bank</th>
                 <th>Status</th>
                 <th>Action</th>
             </tr>
@@ -18,10 +18,10 @@
                 <% for(let loop = 0 ; loop < booking.length; loop++){ %>
                 <tr>
                     <td><%= loop + 1%></td>
+                    <td><%= booking[loop].invoice %></td>
                     <td><%= booking[loop].bookingStartDate.toLocaleString().split(',')[0] %> s/d <%= booking[loop].bookingEndDate.toLocaleString().split(',')[0] %></td>
                     <td><%= booking[loop].itemId.title %></td>
                     <td><%= booking[loop].memberId.firstName %> <%= booking[loop].memberId.lastName %></td>
-                    <td><%= booking[loop].bankId.nameBank %></td>
                     <td><%= booking[loop].payments.status %></td>
                     <td>
                             <a href="/admin/booking/<%= booking[loop].id %>" class="btn btn-success btn-circle btn-sm button-update"><i class="fas fa-eye"></i></a>
