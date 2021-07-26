@@ -7,6 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var adminRouter = require('./routes/admin');
+var apiRouter = require('./routes/api');
+
 const methodOverride = require('method-override');
 const session = require('express-session');
 const flash = require('connect-flash');
@@ -43,7 +45,10 @@ app.use('/sb-admin-2', express.static(path.join(__dirname,'node_modules/startboo
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+// router admin
 app.use('/admin', adminRouter);
+app.use('/api/v1/member', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
