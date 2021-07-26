@@ -4,6 +4,7 @@ const apiController = require('../controllers/apiController');
 
 // landing page
 router.get('/landing-page', apiController.landingPage);
+router.get('/detail-page/:id', apiController.detailPage);
 
 
 
