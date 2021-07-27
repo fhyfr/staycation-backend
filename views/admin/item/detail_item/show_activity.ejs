@@ -41,7 +41,7 @@
                         <td><%= loop + 1%></td>
                         <td><%= activity[loop].name%></td>
                         <td><%= activity[loop].type%></td>
-                        <td><img src="http://localhost:3000/<%= activity[loop].imageUrl %>" alt="imageUrl" width="70px"></td>
+                        <td><img src="https://staycation-dashboard.herokuapp.com/<%= activity[loop].imageUrl %>" alt="imageUrl" width="70px"></td>
                         <td>
                             <form action="/admin/item/<%= itemId %>/activity/<%= activity[loop].id %>?_method=DELETE" method="POST">
                                 <a href="javascript:void()" type="button" class="btn btn-warning btn-circle btn-sm button-update" data-id="<%= activity[loop].id %>" data-name="<%= activity[loop].name %>" data-type="<%= activity[loop].type %>"><i class="fas fa-edit"></i></a>

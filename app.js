@@ -29,7 +29,7 @@ app.use(flash());
 
 // set database connection
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/db_staycation', {
+mongoose.connect('mongodb+srv://fhyfr:staycationdatabase@cluster0.pnust.mongodb.net/db_staycation?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,

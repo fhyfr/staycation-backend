@@ -26,7 +26,7 @@
                         <td><%= bank[loop].nameBank%></td>
                         <td><%= bank[loop].nomorRekening%></td>
                         <td><%= bank[loop].name%></td>
-                        <td><img src="http://localhost:3000/<%= bank[loop].imageUrl %>" alt="imageUrl" width="70px"></td>
+                        <td><img src="https://staycation-dashboard.herokuapp.com/<%= bank[loop].imageUrl %>" alt="imageUrl" width="70px"></td>
                         <td>
                             <form action="/admin/bank/<%= bank[loop].id %>?_method=DELETE" method="POST">
                                 <a href="javascript:void()" type="button" class="btn btn-warning btn-circle btn-sm button-update" data-id="<%= bank[loop].id %>" data-name="<%= bank[loop].name %>" data-namebank="<%= bank[loop].nameBank %>" data-nomorrekening ="<%= bank[loop].nomorRekening %>"><i class="fas fa-edit"></i></a>

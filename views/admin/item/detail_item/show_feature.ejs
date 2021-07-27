@@ -39,7 +39,7 @@
                         <td><%= loop + 1%></td>
                         <td><%= feature[loop].name%></td>
                         <td><%= feature[loop].qty%></td>
-                        <td><img src="http://localhost:3000/<%= feature[loop].imageUrl %>" alt="imageUrl" width="70px"></td>
+                        <td><img src="https://staycation-dashboard.herokuapp.com/<%= feature[loop].imageUrl %>" alt="imageUrl" width="70px"></td>
                         <td>
                             <form action="/admin/item/<%= itemId %>/feature/<%= feature[loop].id %>?_method=DELETE" method="POST">
                                 <a href="javascript:void()" type="button" class="btn btn-warning btn-circle btn-sm button-update" data-id="<%= feature[loop].id %>" data-name="<%= feature[loop].name %>" data-qty="<%= feature[loop].qty %>"><i class="fas fa-edit"></i></a>
